@@ -34,7 +34,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="#courses"
             className="hover:text-[#2bb3a2] transition-colors duration-200"
           >
             Courses
@@ -42,7 +42,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            href="/about"
+            href="#footer"
             className="hover:text-[#2bb3a2] transition-colors duration-200"
           >
             About

@@ -14,9 +14,10 @@ const page = () => {
       <Hero />
       <WhereStudentWork />
       <Goals />
+      <EnrollDiscount />
       <TrainingApproach />
       <TrainingOptions />
-      <EnrollDiscount />
+
       {/* <NewsLetter /> */}
     </div>
   );

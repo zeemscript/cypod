@@ -5,14 +5,14 @@ import { FaEnvelope, FaGlobe } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#29434e] text-white">
+    <footer id="footer" className="bg-[#29434e] text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-4">
               <Image
-                src="/cypod_logo.png"
+                src="/cypod_2.png"
                 height={40}
                 width={190}
                 alt="Cypod_Logo"

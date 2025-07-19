@@ -1,82 +1,136 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaMicrosoft,
-  FaCertificate,
   FaCloud,
+  FaCertificate,
   FaArrowRight,
 } from "react-icons/fa6";
+
 const TrainingOptions = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-[#2bb3a2] to-[#29434e]">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Training Options
-          </h2>
-          <p className="text-xl text-white/90">
-            Choose the path that&apos;s right for you. Click any course to learn
-            more:
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div className="w-16 h-16 bg-[#2bb3a2] rounded-full flex items-center justify-center mb-6">
-              <FaMicrosoft className="text-white text-2xl" />
-            </div>
-            <h3 className="text-2xl font-bold text-[#29434e] mb-4">
+    <div id="courses" className="w-full bg-[#f8fafb] py-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
+        {/* SC-200 Card */}
+        <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
+          <div className="relative h-56 w-full">
+            <Image
+              src="/sc-200.jpeg"
+              alt="SC-200 Course"
+              fill
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2bb3a2]/80 to-transparent" />
+            <span className="absolute top-4 left-4 bg-white/80 rounded-full p-3 shadow-lg">
+              <FaMicrosoft className="text-[#2bb3a2] text-3xl" />
+            </span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between p-8">
+            <h2 className="text-2xl font-extrabold text-[#29434e] mb-3 leading-tight">
               SC-200: Security Operations Analyst
-            </h3>
-            <p className="text-gray-600 mb-6">
+            </h2>
+            <p className="text-lg text-[#29434e] mb-6 font-medium">
               Master threat detection, investigation, and response using
               Microsoft Sentinel and Defender.
             </p>
-            <Link
-              href="/courses/sc-200"
-              className="inline-flex items-center text-[#2bb3a2] font-semibold hover:text-[#29434e] transition-colors"
-            >
-              SC-200 Course Details <FaArrowRight className="ml-2" />
-            </Link>
-          </div>
-          <div className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div className="w-16 h-16 bg-[#ff8c2b] rounded-full flex items-center justify-center mb-6">
-              <FaCloud className="text-white text-2xl" />
+            <div className="flex gap-4 flex-wrap mt-auto">
+              <Link
+                href="/courses/sc-200"
+                className="inline-flex items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
+              >
+                Details <FaArrowRight className="ml-2" />
+              </Link>
+              <Link
+                href="/enroll/sc-200"
+                className="inline-flex items-center font-bold px-8 py-2 rounded-full text-white shadow-lg text-lg bg-[#2bb3a2] hover:bg-[#29434e]"
+              >
+                Enroll Now
+              </Link>
             </div>
-            <h3 className="text-2xl font-bold text-[#29434e] mb-4">
+          </div>
+        </div>
+        {/* AZ-500 Card */}
+        <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
+          <div className="relative h-56 w-full">
+            <Image
+              src="/az-500.jpeg"
+              alt="AZ-500 Course"
+              fill
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#ff8c2b]/80 to-transparent" />
+            <span className="absolute top-4 left-4 bg-white/80 rounded-full p-3 shadow-lg">
+              <FaCloud className="text-[#ff8c2b] text-3xl" />
+            </span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between p-8">
+            <h2 className="text-2xl font-extrabold text-[#29434e] mb-3 leading-tight">
               AZ-500: Azure Security Engineer
-            </h3>
-            <p className="text-gray-600 mb-6">
+            </h2>
+            <p className="text-lg text-[#29434e] mb-6 font-medium">
               Architect, implement and harden cloud security controls across
               Azure workloads.
             </p>
-            <Link
-              href="/courses/az-500"
-              className="inline-flex items-center text-[#ff8c2b] font-semibold hover:text-[#29434e] transition-colors"
-            >
-              AZ-500 Course Details <FaArrowRight className="ml-2" />
-            </Link>
-          </div>
-          <div className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-            <div className="w-16 h-16 bg-[#29434e] rounded-full flex items-center justify-center mb-6">
-              <FaCertificate className="text-white text-2xl" />
+            <div className="flex gap-4 flex-wrap mt-auto">
+              <Link
+                href="/courses/az-500"
+                className="inline-flex items-center text-white font-semibold bg-[#29434e] hover:bg-[#ff8c2b] px-6 py-2 rounded-full transition-colors text-lg"
+              >
+                Details <FaArrowRight className="ml-2" />
+              </Link>
+              <Link
+                href="/enroll/sc-200"
+                className="inline-flex items-center font-bold px-8 py-2 rounded-full text-white shadow-lg text-lg bg-[#ff8c2b] hover:bg-[#29434e]"
+              >
+                Enroll Now
+              </Link>
             </div>
-            <h3 className="text-2xl font-bold text-[#29434e] mb-4">
+          </div>
+        </div>
+        {/* CISSP Card */}
+        <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
+          <div className="relative h-56 w-full">
+            <Image
+              src="/cissp.jpeg"
+              alt="CISSP Course"
+              fill
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#29434e]/80 to-transparent" />
+            <span className="absolute top-4 left-4 bg-white/80 rounded-full p-3 shadow-lg">
+              <FaCertificate className="text-[#29434e] text-3xl" />
+            </span>
+          </div>
+          <div className="flex-1 flex flex-col justify-between p-8">
+            <h2 className="text-2xl font-extrabold text-[#29434e] mb-3 leading-tight">
               CISSP: Info Security Professional
-            </h3>
-            <p className="text-gray-600 mb-6">
+            </h2>
+            <p className="text-lg text-[#29434e] mb-6 font-medium">
               Build deep expertise in security architecture, governance, risk
               and compliance.
             </p>
-            <Link
-              href="/courses/cissp"
-              className="inline-flex items-center text-[#29434e] font-semibold hover:text-[#2bb3a2] transition-colors"
-            >
-              CISSP Course Details <FaArrowRight className="ml-2" />
-            </Link>
+            <div className="flex gap-4 flex-wrap mt-auto">
+              <Link
+                href="/courses/cissp"
+                className="inline-flex items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
+              >
+                Details <FaArrowRight className="ml-2" />
+              </Link>
+              <Link
+                href="/enroll/sc-200"
+                className="inline-flex items-center font-bold px-8 py-2 rounded-full text-white shadow-lg text-lg bg-[#29434e] hover:bg-[#2bb3a2]"
+              >
+                Enroll Now
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
