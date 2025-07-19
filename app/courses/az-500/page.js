@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaCloud,
   FaArrowRight,
@@ -11,257 +11,291 @@ import {
   FaLaptop,
   FaCertificate,
   FaEnvelope,
+  FaRocket,
+  FaBell,
+  FaMicrosoft,
+  FaGift,
+  FaPlay,
+  FaGraduationCap,
+  FaLock,
+  FaGlobe
 } from "react-icons/fa6";
-import Link from "next/link";
 
-const AZ500Page = () => {
+const AZ500ComingSoon = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  // Countdown timer - set to 30 days from now
+  useEffect(() => {
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 30);
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email) {
+      setIsSubmitted(true);
+      // Here you would typically send the email to your backend
+      console.log('Email submitted:', email);
+    }
+  };
+
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#ff8c2b] to-[#29434e] py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <FaCloud className="text-white text-3xl" />
+    <div className="min-h-screen bg-gradient-to-br from-[#2bb3a2] to-[#29434e] overflow-hidden mt-20">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#ff8c2b]/20 to-[#2bb3a2]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-[#29434e]/20 to-[#ff8c2b]/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#2bb3a2]/10 to-[#ff8c2b]/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "4s" }}
+        ></div>
+
+        {/* Floating particles */}
+        <div
+          className="absolute top-20 left-20 w-2 h-2 bg-[#ff8c2b] rounded-full animate-bounce"
+          style={{ animationDelay: "0.5s" }}
+        ></div>
+        <div
+          className="absolute top-40 right-32 w-3 h-3 bg-[#2bb3a2] rounded-full animate-bounce"
+          style={{ animationDelay: "1.5s" }}
+        ></div>
+        <div
+          className="absolute bottom-32 left-32 w-2 h-2 bg-[#29434e] rounded-full animate-bounce"
+          style={{ animationDelay: "2.5s" }}
+        ></div>
+        <div
+          className="absolute bottom-20 right-20 w-3 h-3 bg-[#ff8c2b] rounded-full animate-bounce"
+          style={{ animationDelay: "3s" }}
+        ></div>
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Coming Soon Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-[#2bb3a2]/20 rounded-full px-6 py-3 text-sm font-semibold text-[#2bb3a2] shadow-xl mb-8 animate-pulse">
+            <FaRocket className="w-4 h-4 animate-bounce" />
+            Coming Soon
+          </div>
+
+          {/* Main heading */}
+          <div className="mb-8">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#ff8c2b] to-[#2bb3a2] rounded-full flex items-center justify-center shadow-2xl animate-pulse">
+                <FaMicrosoft className="text-white text-3xl" />
+              </div>
             </div>
-            <h1 className="text-5xl font-bold text-white mb-6">
-              AZ-500: Azure Security Engineer
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-[#29434e] mb-6 leading-tight">
+              <span className="text-[#ff8c2b]">
+                AZ-500
+              </span>
+              <br />
+              <span className="text-[#29434e]">Azure Security Engineer</span>
             </h1>
-            <p className="text-xl text-white/90 mb-8">
-              Architect, implement and harden cloud security controls across
-              Azure workloads.
+            <p className="text-xl sm:text-2xl lg:text-3xl text-[#29434e]/70 font-light max-w-4xl mx-auto leading-relaxed">
+              Master Azure security engineering with our comprehensive
+              certification course
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-white/90">
-              <div className="flex items-center gap-2">
-                <FaClock />
-                <span>4 Days</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <FaUsers />
-                <span>Advanced Level</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <FaStar />
-                <span>4.9/5 Rating</span>
-              </div>
+          </div>
+
+          {/* Countdown Timer */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-[#29434e] mb-6">
+              Launching In
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
+              {[
+                { value: timeLeft.days, label: "Days" },
+                { value: timeLeft.hours, label: "Hours" },
+                { value: timeLeft.minutes, label: "Minutes" },
+                { value: timeLeft.seconds, label: "Seconds" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white/80 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-[#2bb3a2]/20 shadow-xl"
+                >
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#ff8c2b] mb-2">
+                    {item.value.toString().padStart(2, "0")}
+                  </div>
+                  <div className="text-sm sm:text-base text-[#29434e] font-medium">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Course Overview */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-12">
-              {/* Main Content */}
-              <div className="lg:col-span-2">
-                <h2 className="text-3xl font-bold text-[#29434e] mb-6">
-                  Course Overview
-                </h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  The AZ-500 Azure Security Engineer course is designed for
-                  security professionals who want to specialize in Microsoft
-                  Azure security. You&apos;ll learn to implement security
-                  controls, manage identity and access, and protect data,
-                  applications, and networks in cloud and hybrid environments.
-                </p>
-
-                <h3 className="text-2xl font-bold text-[#29434e] mb-4">
-                  What You&apos;ll Learn
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
-                  <div className="flex items-start gap-3">
-                    <FaCheck className="text-[#ff8c2b] mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">
-                      Azure security architecture design
-                    </span>
+          {/* Course highlights */}
+          <div className="mb-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                {
+                  icon: FaShield,
+                  title: "Security Architecture",
+                  desc: "Design & implement Azure security",
+                },
+                {
+                  icon: FaLock,
+                  title: "Identity Management",
+                  desc: "Master Azure AD & access control",
+                },
+                {
+                  icon: FaGlobe,
+                  title: "Network Security",
+                  desc: "Secure Azure networking & connectivity",
+                },
+                {
+                  icon: FaCertificate,
+                  title: "Microsoft Certified",
+                  desc: "Prepare for AZ-500 exam",
+                },
+              ].map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#2bb3a2]/20 hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#ff8c2b] to-[#2bb3a2] rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="text-white text-xl" />
                   </div>
-                  <div className="flex items-start gap-3">
-                    <FaCheck className="text-[#ff8c2b] mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">
-                      Identity and access management
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FaCheck className="text-[#ff8c2b] mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">
-                      Network security implementation
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FaCheck className="text-[#ff8c2b] mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">
-                      Data protection strategies
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FaCheck className="text-[#ff8c2b] mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">
-                      Security monitoring and compliance
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <FaCheck className="text-[#ff8c2b] mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">Hands-on Azure labs</span>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold text-[#29434e] mb-4">
-                  Course Outline
-                </h3>
-                <div className="space-y-4 mb-8">
-                  {[
-                    "Module 1: Azure Security Fundamentals",
-                    "Module 2: Identity and Access Management",
-                    "Module 3: Network Security",
-                    "Module 4: Data Protection",
-                    "Module 5: Security Monitoring",
-                    "Module 6: Compliance and Governance",
-                  ].map((module, index) => (
-                    <div
-                      key={index}
-                      className="bg-gray-50 p-4 rounded-lg border-l-4 border-[#ff8c2b]"
-                    >
-                      <h4 className="font-semibold text-[#29434e]">{module}</h4>
-                    </div>
-                  ))}
-                </div>
-
-                <h3 className="text-2xl font-bold text-[#29434e] mb-4">
-                  Prerequisites
-                </h3>
-                <ul className="list-disc list-inside text-gray-600 mb-8 space-y-2">
-                  <li>Strong understanding of Azure fundamentals</li>
-                  <li>Experience with security concepts and practices</li>
-                  <li>Familiarity with networking and virtualization</li>
-                  <li>Basic knowledge of PowerShell and Azure CLI</li>
-                </ul>
-              </div>
-
-              {/* Sidebar */}
-              <div className="lg:col-span-1">
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sticky top-24">
-                  <h3 className="text-2xl font-bold text-[#29434e] mb-6">
-                    Course Details
+                  <h3 className="text-lg font-bold text-[#29434e] mb-2">
+                    {feature.title}
                   </h3>
-
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold">4 Days</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Level:</span>
-                      <span className="font-semibold">Advanced</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Format:</span>
-                      <span className="font-semibold">Live Online</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Labs:</span>
-                      <span className="font-semibold">Included</span>
-                    </div>
-                  </div>
-
-                  <div className="text-center mb-8">
-                    <div className="text-4xl font-bold text-[#29434e] mb-2">
-                      £2,800
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      30% discount available for early payment
-                    </div>
-                  </div>
-
-                  <button className="w-full bg-[#ff8c2b] hover:bg-[#29434e] text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mb-4">
-                    <FaEnvelope />
-                    Enroll Now
-                  </button>
-
-                  <button className="w-full bg-white border-2 border-[#ff8c2b] text-[#ff8c2b] font-bold py-4 px-6 rounded-xl hover:bg-[#ff8c2b] hover:text-white transition-all duration-300">
-                    Download Brochure
-                  </button>
+                  <p className="text-[#29434e]/70 text-sm">{feature.desc}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* What You&apos;ll Get */}
-      <section className="py-16 bg-gradient-to-r from-[#29434e] to-[#ff8c2b]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-white mb-12">
-              What You&apos;ll Get
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaLaptop className="text-white text-2xl" />
+          {/* Email signup */}
+          <div className="mb-12">
+            <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-[#2bb3a2]/20 shadow-2xl max-w-2xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#29434e] mb-4">
+                Get Early Access & Special Pricing
+              </h2>
+              <p className="text-[#29434e]/70 mb-8">
+                Be the first to know when we launch. Sign up for early bird
+                pricing and exclusive updates.
+              </p>
+
+              {!isSubmitted ? (
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    className="flex-1 px-6 py-4 bg-white/80 backdrop-blur-sm border border-[#29434e]/20 rounded-xl text-[#29434e] placeholder-[#29434e]/60 focus:outline-none focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="bg-gradient-to-r from-[#2bb3a2] to-[#2bb3a2]/90 hover:from-[#ff8c2b] hover:to-[#ff8c2b]/90 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3"
+                  >
+                    <FaBell className="w-4 h-4" />
+                    Notify Me
+                  </button>
+                </form>
+              ) : (
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <FaCheck className="text-white text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#29434e] mb-2">
+                    You&apos;re on the list!
+                  </h3>
+                  <p className="text-[#29434e]/70">
+                    We&apos;ll notify you as soon as the course launches.
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Azure Labs
-                </h3>
-                <p className="text-white/90">
-                  Real Azure environment access for hands-on practice
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaCertificate className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Certification Prep
-                </h3>
-                <p className="text-white/90">
-                  Preparation for Microsoft AZ-500 certification exam
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaShield className="text-white text-2xl" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Security Expertise
-                </h3>
-                <p className="text-white/90">
-                  Advanced cloud security skills and best practices
-                </p>
-              </div>
+              )}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-[#29434e] mb-6">
-              Ready to Become an Azure Security Expert?
+          {/* Early bird benefits */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold text-[#29434e] mb-8">
+              Early Bird Benefits
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Join our AZ-500 course and master Azure security engineering.
-              Limited seats available.
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {[
+                {
+                  icon: FaGift,
+                  title: "50% Off Launch Price",
+                  desc: "Exclusive early bird discount",
+                },
+                {
+                  icon: FaPlay,
+                  title: "Bonus Content",
+                  desc: "Extra modules & resources",
+                },
+                {
+                  icon: FaGraduationCap,
+                  title: "Priority Support",
+                  desc: "Direct access to instructors",
+                },
+              ].map((benefit, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-br from-[#2bb3a2]/10 to-[#ff8c2b]/10 backdrop-blur-sm rounded-xl p-6 border border-[#2bb3a2]/30 shadow-lg"
+                >
+                  <div className="w-12 h-12 bg-[#ff8c2b] rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon className="text-white text-xl" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#29434e] mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-[#29434e]/70 text-sm">{benefit.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Social proof */}
+          <div className="text-center">
+            <p className="text-[#29434e]/60 text-sm mb-4">
+              Trusted by security professionals worldwide
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#ff8c2b] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all">
-                Reserve Your Seat
-              </button>
-              <Link
-                href="/courses"
-                className="bg-white border-2 border-[#ff8c2b] text-[#ff8c2b] font-bold py-4 px-8 rounded-xl hover:bg-[#ff8c2b] hover:text-white transition-all"
-              >
-                View All Courses
-              </Link>
+            <div className="flex flex-wrap justify-center items-center gap-6 text-[#29434e]/40">
+              <span className="text-sm">Microsoft Partner</span>
+              <span className="text-sm">•</span>
+              <span className="text-sm">Certified Instructors</span>
+              <span className="text-sm">•</span>
+              <span className="text-sm">Industry Recognized</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
 
-export default AZ500Page;
+export default AZ500ComingSoon;

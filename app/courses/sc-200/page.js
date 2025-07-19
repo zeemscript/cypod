@@ -51,9 +51,12 @@ const SC200Page = () => {
               just 8 weeks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#ff8c2] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-lg">
+              <Link
+                href="/enroll/sc-200"
+                className="bg-[#ff8c2] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-lg"
+              >
                 <FaRocket /> Enroll Now
-              </button>
+              </Link>
               <button className="bg-white/20 border border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 flex items-center gap-2 text-lg">
                 <FaDownload /> Download Course Outline & Timetable
               </button>
@@ -433,10 +436,10 @@ const SC200Page = () => {
                     </ul>
                   </div>
                 </div>
-                <div>
-                  <button className="w-full bg-[#ff8c2] hover:bg-[#29434e] text-white font-bold py-6 px-8 rounded-xl transition-all duration-300 text-xl mb-4 flex items-center justify-center gap-3">
-                    <FaRocket /> Secure Your Spot – Enroll Now
-                  </button>
+                <div className="flex flex-col justify-center">
+                  <Link href="/enroll/sc-200" className="w-full bg-[#ff8c2] border border-white hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 text-xl mb-4 flex items-center justify-center gap-3">
+                    <FaRocket /> Secure Your Spot
+                  </Link>
                   <button className="w-full bg-white/20 border border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 flex items-center justify-center gap-3">
                     <FaDownload /> Download Course Outline
                   </button>
