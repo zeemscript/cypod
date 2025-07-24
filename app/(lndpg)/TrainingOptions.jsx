@@ -11,6 +11,14 @@ import {
 const TrainingOptions = () => {
   return (
     <div id="courses" className="w-full bg-[#f8fafb] py-16">
+      <div className="flex flex-col justify-center items-center text-center mb-12">
+        <span className="text-2xl sm:text-5xl font-bold text-[#29434e] mb-4">
+          Training Options
+        </span>
+        <span className="text-3xl">
+          Choose the path that’s right for you. Click any course to learn more:
+        </span>
+      </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
         {/* SC-200 Card */}
         <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
@@ -38,16 +46,11 @@ const TrainingOptions = () => {
             <div className="flex gap-4 flex-wrap mt-auto">
               <Link
                 href="/courses/sc-200"
-                className="inline-flex items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
+                className="inline-flex justify-center w-full items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
               >
                 Details <FaArrowRight className="ml-2" />
               </Link>
-              <Link
-                href="/enroll/sc-200"
-                className="inline-flex items-center font-bold px-8 py-2 rounded-full text-white shadow-lg text-lg bg-[#2bb3a2] hover:bg-[#29434e]"
-              >
-                Enroll Now
-              </Link>
+
             </div>
           </div>
         </div>
@@ -77,15 +80,9 @@ const TrainingOptions = () => {
             <div className="flex gap-4 flex-wrap mt-auto">
               <Link
                 href="/courses/az-500"
-                className="inline-flex items-center text-white font-semibold bg-[#29434e] hover:bg-[#ff8c2b] px-6 py-2 rounded-full transition-colors text-lg"
+                className="flex justify-center  items-center w-full text-white font-semibold bg-[#29434e] hover:bg-[#ff8c2b] px-6 py-2 rounded-full transition-colors text-lg"
               >
                 Details <FaArrowRight className="ml-2" />
-              </Link>
-              <Link
-                href="/enroll/sc-200"
-                className="inline-flex items-center font-bold px-8 py-2 rounded-full text-white shadow-lg text-lg bg-[#ff8c2b] hover:bg-[#29434e]"
-              >
-                Enroll Now
               </Link>
             </div>
           </div>
@@ -116,15 +113,9 @@ const TrainingOptions = () => {
             <div className="flex gap-4 flex-wrap mt-auto">
               <Link
                 href="/courses/cissp"
-                className="inline-flex items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
+                className="flex justify-center w-full items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
               >
                 Details <FaArrowRight className="ml-2" />
-              </Link>
-              <Link
-                href="/enroll/sc-200"
-                className="inline-flex items-center font-bold px-8 py-2 rounded-full text-white shadow-lg text-lg bg-[#29434e] hover:bg-[#2bb3a2]"
-              >
-                Enroll Now
               </Link>
             </div>
           </div>

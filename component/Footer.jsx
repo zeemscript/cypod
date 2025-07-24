@@ -5,14 +5,14 @@ import { FaEnvelope, FaGlobe } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="bg-[#29434e] text-white">
+    <footer id="footer" className="text-[#29434e] bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-4">
               <Image
-                src="/cypod_2.png"
+                src="/cypod_logo.png"
                 height={40}
                 width={190}
                 alt="Cypod_Logo"
@@ -21,7 +21,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">
               Expert Cybersecurity Training and Advisory Services
             </h3>
-            <div className="space-y-2 text-gray-300">
+            <div className="space-y-2 text-black">
               <p>Training</p>
               <p>Advisory services</p>
             </div>
@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Courses */}
           <div>
             <h4 className="text-lg font-bold mb-4">Courses</h4>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-black">
               <li>
                 <Link
                   href="/courses/sc-200"
@@ -61,7 +61,7 @@ const Footer = () => {
           {/* Contact & Legal */}
           <div>
             <h4 className="text-lg font-bold mb-4">Contact Us</h4>
-            <div className="space-y-2 text-gray-300 mb-6">
+            <div className="space-y-2 text-black mb-6">
               <div className="flex items-center gap-2">
                 <FaGlobe className="text-[#2bb3a2]" />
                 <a
@@ -81,7 +81,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="space-y-2 text-gray-300">
+            <div className="space-y-2 text-black">
               <Link
                 href="/terms-of-service"
                 className="block hover:text-[#2bb3a2] transition-colors"
@@ -93,7 +93,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
+        <div className="border-t border-gray-600 mt-8 pt-8 text-center text-black">
           <p>© 2025 CYPODadvisory · All rights reserved.</p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import sendMail from "@/lib/sendmail";
 import {
   FaArrowRight,
   FaShield,
@@ -11,15 +12,16 @@ import {
 
 const SC200EnrollmentPage = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
+    fullName: "",
     phone: "",
-    company: "",
-    experience: "beginner",
-    preferredDate: "",
-    paymentMethod: "card",
+    whatsapp: "",
+    email: "",
+    country: "",
+    course: "SC-200: Security Operations Analyst",
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -28,10 +30,20 @@ const SC200EnrollmentPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle enrollment submission
-    console.log("Enrollment submitted:", formData);
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+    try {
+      await sendMail(formData);
+      setSuccess("Enrollment submitted successfully! We will get back to you soon.");
+      setFormData({ fullName: "", phone: "", whatsapp: "", email: "", country: "", course: "SC-200: Security Operations Analyst" });
+    } catch (err) {
+      setError("There was an error submitting your enrollment. Please try again or contact us via WhatsApp.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,7 +58,7 @@ const SC200EnrollmentPage = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#2bb3a2]/20 rounded-full px-4 py-2 text-sm font-medium text-[#2bb3a2] shadow-sm mb-6">
-            <FaShield className="w-4 h-4" />
+            <FaShield className="w-4 h-4 text-[#ff8c2b]" />
             SC-200: Microsoft Security Operations Analyst
           </div>
 
@@ -62,115 +74,111 @@ const SC200EnrollmentPage = () => {
 
         {/* Enrollment Form */}
         <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30">
-                    {/* Form Section */}
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-[#29434e] mb-8">
-                Student Information
-              </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-[#29434e] mb-2">
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#29434e] mb-2">
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
+          <div className="lg:col-span-2">
+            <h2 className="text-2xl font-bold text-[#29434e] mb-8">
+              Student Information
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {success && (
+                <div className="bg-green-100 text-green-800 px-4 py-3 rounded-lg mb-4 text-center font-semibold border border-green-200">
+                  {success}
                 </div>
-
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-[#29434e] mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#29434e] mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
-                    />
-                  </div>
+              )}
+              {error && (
+                <div className="bg-red-100 text-red-800 px-4 py-3 rounded-lg mb-4 text-center font-semibold border border-red-200">
+                  {error}
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#29434e] mb-2">
-                    Company/Organization
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#29434e] mb-2">
-                    Experience Level
-                  </label>
-                  <select
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
-                  >
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                  </select>
-                </div>
-
-                <div className="pt-6">
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-[#2bb3a2] to-[#2bb3a2]/90 hover:from-[#ff8c2b] hover:to-[#ff8c2b]/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3"
-                  >
-                    <span>Complete Enrollment</span>
-                    <FaArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </form>
+              )}
+              <div>
+                <label className="block text-sm font-medium text-[#29434e] mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#ff8c2b] focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#29434e] mb-2">
+                  Phone Number (please add country code) *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="e.g. +123456789"
+                  className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#ff8c2b] focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#29434e] mb-2">
+                  WhatsApp Number
+                </label>
+                <input
+                  type="tel"
+                  name="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={handleInputChange}
+                  placeholder="e.g. +123456789"
+                  className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#29434e] mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#ff8c2b] focus:border-transparent transition-all"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#29434e] mb-2">
+                  Country
+                </label>
+                <input
+                  type="text"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#ff8c2b] focus:border-transparent transition-all"
+                />
+              </div>
+              <div className="pt-6">
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#2bb3a2] to-[#2bb3a2]/90 hover:from-[#ff8c2b] hover:to-[#ff8c2b]/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <span>Submitting...</span>
+                  ) : (
+                    <>
+                      <span>Complete Enrollment</span>
+                      <FaArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+            <div className="mt-8 text-center text-[#29434e] text-lg">
+              We would get back to you as soon as possible!<br />
+              <span className="block mt-2">You can also reach out to us via WhatsApp <a href="https://wa.me/447350028993" target="_blank" rel="noopener noreferrer" className="text-[#2bb3a2] underline font-bold">+447350028993</a></span>
             </div>
-
-       
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

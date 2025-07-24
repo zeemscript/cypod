@@ -22,7 +22,9 @@ import {
   FaQuestion,
   FaChevronDown,
 } from "react-icons/fa6";
+
 import Link from "next/link";
+import EnrollDiscount from "../../(lndpg)/Enroll-Discount";
 
 const SC200Page = () => {
   return (
@@ -53,13 +55,10 @@ const SC200Page = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/enroll/sc-200"
-                className="bg-[#ff8c2] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-lg"
+                className="bg-[#ff8c2] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-lg border border-[#ff8c2b]"
               >
                 <FaRocket /> Enroll Now
               </Link>
-              <button className="bg-white/20 border border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 flex items-center gap-2 text-lg">
-                <FaDownload /> Download Course Outline & Timetable
-              </button>
             </div>
           </div>
         </div>
@@ -234,64 +233,86 @@ const SC200Page = () => {
         </div>
       </section>
 
-      {/* Schedule & Requirements Section */}
+      {/* Schedule & Requirements Section - Redesigned */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center text-[#29434e] mb-16">
               Schedule & Requirements
             </h2>
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="bg-gradient-to-br from-[#2bb3a2]/10 to-[#29434e]/10 rounded-2xl border border-[#2bb3a2]/20 p-5">
-                <h3 className="text-2xl font-bold text-[#29434e] mb-6">
-                  Course Details
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="rounded-2xl border border-[#2bb3a2]/20 bg-gradient-to-br from-[#e0f7fa]/60 to-[#f8fafc]/60 p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-[#29434e] mb-6 flex items-center gap-2">
+                  <FaClock className="text-[#2bb3a2] text-2xl" /> Course Details
                 </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
+                <ul className="space-y-4 text-lg">
+                  <li className="flex items-center gap-3">
+                    <FaCalendar className="text-[#2bb3a2] text-xl" />
+                    <span className="text-gray-700">
+                      <strong>When:</strong> Saturdays, 4PM–8PM
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
                     <FaClock className="text-[#2bb3a2] text-xl" />
                     <span className="text-gray-700">
                       <strong>Duration:</strong> 8 weeks
                     </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <FaCalendar className="text-[#2bb3a2] text-xl" />
-                    <span className="text-gray-700">
-                      <strong>When:</strong> Saturdays, 4M–8PM
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
+                  </li>
+                  <li className="flex items-center gap-3">
                     <FaLaptop className="text-[#2bb3a2] text-xl" />
                     <span className="text-gray-700">
                       <strong>Format:</strong> Live online classes + on-demand
                       lab access
                     </span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
-              <div className="bg-gradient-to-br from-[#ff8c2]/10 to-[#2bb3a2]/10 rounded-2xl border border-[#ff8c2]/20 p-5">
-                <h3 className="text-2xl font-bold text-[#29434e] mb-6">
-                  You&apos;ll need:
+              <div className="rounded-2xl border border-[#ff8c2b]/20 bg-gradient-to-br from-[#fff7f0]/60 to-[#e0f7fa]/60 p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-[#29434e] mb-6 flex items-center gap-2">
+                  <FaCheck className="text-[#ff8c2b] text-2xl" /> You&apos;ll
+                  need:
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4 text-lg">
                   <li className="flex items-center gap-3">
-                    <FaCheck className="text-[#ff8c2]" />A laptop & stable
-                    internet
+                    <FaLaptop className="text-[#ff8c2b] text-xl" />A laptop &
+                    stable internet
                   </li>
                   <li className="flex items-center gap-3">
-                    <FaCheck className="text-[#ff8c2]" />
+                    <FaShield className="text-[#ff8c2b] text-xl" />
                     An Azure account (free tier or pay-as-you-go; cost
                     optimized)
                   </li>
                 </ul>
-                <button className="mt-6  hover:bg-[#29434e] text-[#29434e] hover:text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 flex items-center gap-2">
-                  <FaDownload /> Download Detailed Timetable
-                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Next Cohort Section */}
+      <section className="py-16 bg-gradient-to-br from-[#2bb3a2]/10 to-[#ff8c2b]/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center rounded-3xl border border-[#2bb3a2]/20 bg-white/80 p-10 shadow">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#29434e] mb-4">
+              Next Cohort Starts
+            </h2>
+            <div className="text-2xl font-bold text-[#ff8c2b] mb-2">
+              16th of August
+            </div>
+            <div className="text-lg text-[#29434e] mb-4">
+              Every Saturday 4pm-8pm • For 8 weeks
+            </div>
+            <div className="flex justify-center">
+              <a
+                href="/enroll/sc-200"
+                className="bg-[#ff8c2b] hover:bg-[#2bb3a2] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 text-xl flex items-center gap-3"
+              >
+                Make Payment Now! To secure your spot at discounted price
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Who Should Attend Section */}
       <section className="py-20 bg-gradient-to-r from-[#29434e] to-[#2bb3a2]">
         <div className="container mx-auto px-4">
@@ -410,7 +431,7 @@ const SC200Page = () => {
               Pricing & Payment Plan
             </h2>
             <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
-              <div className="grid md:grid-cols-2 gap-12">
+              <div className="grid gap-12">
                 <div>
                   <div className="text-6xl font-black text-white mb-4">
                     £800
@@ -423,8 +444,9 @@ const SC200Page = () => {
                   </p>
                   <div className="bg-[#ff8c2]/20 rounded-xl p-6 border border-[#ff8c2b]">
                     <p className="text-white font-semibold mb-4">
-                      Secure your spot with a £300 deposit by 10s before the
-                      start of class.
+                      Secure your spot with £300, pay your balance of £260
+                      before the 4th class. Only if you pay 10 days before the
+                      class start date.
                     </p>
                     <ul className="text-white/90 space-y-2 text-left">
                       <li>• Balance (£260) due by week-4 of the course</li>
@@ -436,13 +458,13 @@ const SC200Page = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="flex flex-col justify-center">
-                  <Link href="/enroll/sc-200" className="w-full bg-[#ff8c2] border border-white hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 text-xl mb-4 flex items-center justify-center gap-3">
+                <div className="flex  justify-center">
+                  <Link
+                    href="/enroll/sc-200"
+                    className="w-full bg-[#ff8c2] border border-white hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 text-xl mb-4 flex items-center justify-center gap-3"
+                  >
                     <FaRocket /> Secure Your Spot
                   </Link>
-                  <button className="w-full bg-white/20 border border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 flex items-center justify-center gap-3">
-                    <FaDownload /> Download Course Outline
-                  </button>
                 </div>
               </div>
             </div>
@@ -501,19 +523,17 @@ const SC200Page = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
-              Don&apos;t miss this opportunity to become a Microsoft-certified
-              Security Operations Analyst.
+              Don&apos;t miss this opportunity to become a <br />{" "}
+              Microsoft-certified Security Operations Analyst.
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <button className="bg-[#ff8c2] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-lg">
-                <FaDownload /> Download Course Outline & Timetable
-              </button>
+            <div className="flex gap-4 justify-center mb-8">
               <button className="bg-white/20 border border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 flex items-center gap-2 text-lg">
                 <FaRocket /> Enroll Now to Get Discount
               </button>
             </div>
             <p className="text-white/90 text-lg">
-              Questions? Contact us or book a free15nsult.
+              Questions? Contact us or book a free consultation to discuss
+              hello@cypodadvisory.com
             </p>
           </div>
         </div>
