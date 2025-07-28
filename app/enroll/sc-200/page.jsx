@@ -4,11 +4,10 @@ import sendMail from "@/lib/sendmail";
 import {
   FaArrowRight,
   FaShield,
-  FaCheck,
-  FaClock,
-  FaCertificate,
-  FaCalendar,
 } from "react-icons/fa6";
+
+
+
 
 const SC200EnrollmentPage = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +18,8 @@ const SC200EnrollmentPage = () => {
     country: "",
     course: "SC-200: Security Operations Analyst",
   });
+  const [isChecked, setIsChecked] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
@@ -30,6 +31,10 @@ const SC200EnrollmentPage = () => {
     });
   };
 
+  // Handler for checkbox change
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -153,6 +158,16 @@ const SC200EnrollmentPage = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-[#29434e]/20 rounded-lg focus:ring-2 focus:ring-[#ff8c2b] focus:border-transparent transition-all"
                 />
+              </div>
+              <div className="flex items-center space-x-2">
+                <input type="checkbox"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  value="Send email and whatsapp messages to me"
+                  className="text-black" />
+                <label className="block text-lg font-medium text-[#29434e]">
+                  I agree to be contacted via email and WhatsApp.
+                </label>
               </div>
               <div className="pt-6">
                 <button

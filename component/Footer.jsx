@@ -77,7 +77,7 @@ const Footer = () => {
                   href="mailto:contact@cypodadvisory.com"
                   className="hover:text-[#2bb3a2] transition-colors"
                 >
-                  contact@cypodadvisory.com
+                  hello@cypodadvisory.com
                 </a>
               </div>
             </div>

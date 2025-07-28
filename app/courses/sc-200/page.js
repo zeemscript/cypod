@@ -20,7 +20,6 @@ import {
   FaRocket,
   FaHandshake,
   FaQuestion,
-  FaChevronDown,
 } from "react-icons/fa6";
 
 import Link from "next/link";
@@ -63,7 +62,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Why SC-200 Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -121,6 +119,64 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
+      {/* Pricing & Payment Plan Section */}
+      <section className="py-20 bg-gradient-to-r from-[#29434e] to-[#2bb3a2]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-16">
+              Pricing & Payment Plan
+            </h2>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
+              <div className="grid gap-12">
+                <div>
+                  {/* Full Payment Option */}
+                  <div className="bg-[#0f766e]/20 rounded-xl p-6 border border-[#0f766e] mb-6">
+                    <p className="text-white text-2xl sm:text-4xl font-semibold mb-4 text-left">
+                      Standard price of: <strong>£800</strong>
+                    </p>
+                    <ul className="text-white/90 space-y-2 text-left">
+                      <li>• One-time payment of £800</li>
+                      <li>• Next class starts: Saturday, 16th August</li>
+                    </ul>
+                  </div>
+
+                  {/* Installment Option */}
+                  <div className="bg-[#ff8c2b]/20 rounded-xl p-6 border border-[#ff8c2b]">
+                    <p className="text-white text-2xl sm:text-4xl font-semibold mb-4 text-left">
+                      Early Bird price: <strong>£560</strong>
+                    </p>
+                    <ul className="text-white/90 space-y-2 text-left">
+                      <li>• Saves you £240 compared to full price</li>
+                      <li>• Offer valid until August 6.</li>
+                    </ul>
+                    <div className="text-white/70 text-md mt-8 italic">
+                      💳 Pay in full in atleast 10days before the course starts
+                      to get this discount !
+                    </div>
+                  </div>
+
+                  {/* After Deadline Info */}
+                  <div className="text-white/70 text-md mt-8 italic">
+                    💳 Prefer to pay in installemnts? <br />
+                    flexible payment plans are available on request
+                  </div>
+                </div>
+
+                {/* Enroll CTA */}
+                <div className="flex justify-center">
+                  <Link
+                    href="/enroll/sc-200"
+                    className="w-full bg-[#ff8c2b] border border-white hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 text-xl mb-4 flex items-center justify-center gap-3"
+                  >
+                    <FaRocket /> Secure Your Spot Now
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Key Benefits Section */}
       <section className="py-20 bg-gradient-to-r from-[#29434e] to-[#2bb3a2]">
@@ -158,7 +214,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Curriculum & Modules Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -195,7 +250,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Teaching Approach Section */}
       <section className="py-20 bg-gradient-to-r from-[#2bb3a2] to-[#29434e]">
         <div className="container mx-auto px-4">
@@ -232,7 +286,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Schedule & Requirements Section - Redesigned */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -288,7 +341,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Next Cohort Section */}
       <section className="py-16 bg-gradient-to-br from-[#2bb3a2]/10 to-[#ff8c2b]/10">
         <div className="container mx-auto px-4">
@@ -349,7 +401,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Meet Your Instructor Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -422,51 +473,35 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
-      {/* Pricing & Payment Plan Section */}
-      <section className="py-20 bg-gradient-to-r from-[#29434e] to-[#2bb3a2]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-16">
-              Pricing & Payment Plan
+      <section className="py-20 bg-gradient-to-br from-[#e0f7f4] to-[#fff3e6]">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg p-10">
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#1f2d3d] mb-6 text-center leading-snug">
+              Still thinking? Lock in your spot today!
             </h2>
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
-              <div className="grid gap-12">
-                <div>
-                  <div className="text-6xl font-black text-white mb-4">
-                    £800
-                  </div>
-                  <div className="text-2xl font-bold text-[#ff8c2b] mb-6">
-                    Early-bird Discount → £560
-                  </div>
-                  <p className="text-white/90 mb-8">
-                    if you pay 10 days before the class start date.
-                  </p>
-                  <div className="bg-[#ff8c2]/20 rounded-xl p-6 border border-[#ff8c2b]">
-                    <p className="text-white font-semibold mb-4">
-                      Secure your spot with £300, pay your balance of £260
-                      before the 4th class. Only if you pay 10 days before the
-                      class start date.
-                    </p>
-                    <ul className="text-white/90 space-y-2 text-left">
-                      <li>• Balance (£260) due by week-4 of the course</li>
-                      <li>• Next class starts on Saturday,16th August</li>
-                      <li>
-                        • Pay the £300 deposit by August 6 to gain from £560
-                        discounted price.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="flex  justify-center">
-                  <Link
-                    href="/enroll/sc-200"
-                    className="w-full bg-[#ff8c2] border border-white hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 text-xl mb-4 flex items-center justify-center gap-3"
-                  >
-                    <FaRocket /> Secure Your Spot
-                  </Link>
-                </div>
-              </div>
+
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-6 text-center">
+              <span className="text-3xl font-bold text-[#2bb3a2]">
+                Early bird: £560
+              </span>
+              <span className="text-xl text-gray-500 line-through">
+                Standard: £800
+              </span>
+            </div>
+
+            <div className="text-gray-600 text-base italic text-center mb-8">
+              💳 Prefer to pay in installments?
+              <br />
+              Flexible payment plans are available on request.
+            </div>
+
+            <div className="flex justify-center">
+              <a
+                href="/enroll/sc-200"
+                className="inline-flex items-center justify-center gap-2 bg-[#ff8c2b] hover:bg-[#2bb3a2] text-white font-semibold text-lg px-8 py-4 rounded-full transition-all duration-300 shadow-md"
+              >
+                Secure Your Spot!
+              </a>
             </div>
           </div>
         </div>
@@ -517,7 +552,6 @@ const SC200Page = () => {
           </div>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-br from-[#29434e] to-[#2bb3a2]">
         <div className="container mx-auto px-4 text-center">
