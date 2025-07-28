@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 overflow-hidden">
       {/* Main content container */}
-      <div className="relative z-10 w-full max-w-8xl mx-auto px-2 sm:px-6 lg:px-8 py-8 md:py-16 flex items-center justify-center mt-16 sm:mt-0">
+      <div className="relative z-10 w-full max-w-8xl mx-auto px-2 sm:px-6 lg:px-8 py-8 md:py-16 flex items-center justify-center mt-12 sm:mt-0">
         <div className="grid  gap-12 lg:gap-16 items-center w-full">
           {/* Left content */}
           <div className="text-center  space-y-8 flex flex-col items-center justify-center">
@@ -50,11 +50,21 @@ const Hero = () => {
             </div> */}
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center  w-full">
-              <button className="group bg-gradient-to-r from-[#2bb3a2] to-[#2bb3a2]/90 hover:from-[#ff8c2b] hover:to-[#ff8c2b]/90 text-white font-semibold py-4 px-8 rounded-xl shadow-lg shadow-[#2bb3a2]/25 hover:shadow-xl hover:shadow-[#ff8c2b]/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-3 justify-center w-full sm:w-auto">
+              <button onClick={() => {
+                const el = document.getElementById("courses");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }} className="group bg-gradient-to-r from-[#2bb3a2] to-[#2bb3a2]/90 hover:from-[#ff8c2b] hover:to-[#ff8c2b]/90 text-white font-semibold py-4 px-8 rounded-xl shadow-lg shadow-[#2bb3a2]/25 hover:shadow-xl hover:shadow-[#ff8c2b]/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-3 justify-center w-full sm:w-auto">
                 <span>Explore Training Options</span>
                 <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="grouptext-[#29434e] font-semibold py-4 px-8 rounded-xl border border-[#ff8c2b] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto">
+              <button onClick={() => {
+                const el = document.getElementById("courses");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }} className="group text-[#29434e] font-semibold py-4 px-8 rounded-xl border border-[#ff8c2b] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto">
                 View Course Catalog
               </button>
             </div>

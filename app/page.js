@@ -12,11 +12,12 @@ const page = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <WhereStudentWork />
       <Goals />
+      <TrainingOptions />
+      <WhereStudentWork />
       <EnrollDiscount />
       <TrainingApproach />
-      <TrainingOptions />
+
 
       {/* <NewsLetter /> */}
     </div>

@@ -112,7 +112,7 @@ const TrainingOptions = () => {
             </p>
             <div className="flex gap-4 flex-wrap mt-auto">
               <Link
-                href="/courses/cissp"
+                href="/"
                 className="flex justify-center w-full items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
               >
                 Details <FaArrowRight className="ml-2" />
