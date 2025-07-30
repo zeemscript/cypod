@@ -10,8 +10,7 @@ const Goals = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay for readability */}
-      <div className=""></div>
+
       <div className="relative z-10 flex flex-col items-center justify-center w-full px-4">
         <h2 className="text-6xl md:text-7xl font-extrabold text-white mb-6 text-center tracking-tight drop-shadow-lg">
           Our Goal

@@ -22,7 +22,7 @@ const courses = [
     color: "#2bb3a2",
     duration: "5 Days",
     level: "Intermediate",
-    price: "£2,500",
+    price: "£800",
     features: [
       "Microsoft Sentinel implementation",
       "Threat detection and response",
@@ -49,7 +49,7 @@ const courses = [
     color: "#ff8c2b",
     duration: "4 Days",
     level: "Advanced",
-    price: "£2,800",
+    price: "£800",
     features: [
       "Azure security architecture",
       "Identity and access management",
@@ -76,7 +76,7 @@ const courses = [
     color: "#29434e",
     duration: "6 Days",
     level: "Expert",
-    price: "£3,200",
+    price: "£800",
     features: [
       "Security architecture design",
       "Risk management frameworks",
@@ -100,100 +100,116 @@ const courses = [
 
 const CoursesPage = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#2bb3a2] to-[#29434e] py-16">
+      <section className="py-16 border-b border-[#e0e7ef] bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-black text-[#29434e] mb-6">
             Training Options
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Choose the path that&apos;s right for you. Our cutting-edge
-            cybersecurity training programs are designed to accelerate your
-            career and equip you with real-world skills.
+          <p className="text-xl text-[#29434e]/80 max-w-3xl mx-auto font-light mb-4">
+            Choose the path that&apos;s right for you. Our cybersecurity training programs are designed to accelerate your career and equip you with real-world skills.
           </p>
         </div>
       </section>
 
       {/* Courses Grid */}
-      <section className="py-16 bg-white">
+      <section id="courses" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
             {courses.map((course) => (
               <div
                 key={course.id}
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                className="bg-white rounded-2xl shadow-md border border-[#e0e7ef] overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative group flex flex-col"
               >
+                {/* Badge */}
+                <span className="absolute top-6 right-6 bg-[#f8fafc] text-[#2bb3a2] font-bold px-4 py-1 rounded-full text-xs uppercase tracking-wider border border-[#e0e7ef]">
+                  {course.level}
+                </span>
                 {/* Course Header */}
-                <div className="p-8 border-b border-gray-100">
+                <div className="p-8 border-b border-[#e0e7ef] flex-1 flex flex-col">
                   <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow"
                     style={{ backgroundColor: course.color }}
                   >
                     <course.icon className="text-white text-2xl" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#29434e] mb-4">
+                  <h3 className="text-2xl font-bold text-[#29434e] mb-3">
                     {course.title}
                   </h3>
-                  <p className="text-gray-600 mb-6">{course.description}</p>
-
+                  <p className="text-base text-[#29434e]/80 mb-6 font-medium">
+                    {course.description}
+                  </p>
                   {/* Course Meta */}
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
-                    <div className="flex items-center gap-2">
-                      <FaClock />
-                      <span>{course.duration}</span>
-                    </div>
+                  <div className="flex flex-col gap-2 text-xs text-[#29434e]/60 mb-6">
+                    {/* Duration and Schedule */}
+                    {course.id === "sc-200" && (
+                      <div className="flex items-center gap-2">
+                        <FaClock />
+                        <span>8 weeks (Saturdays, 4pm–8pm)</span>
+                      </div>
+                    )}
+                    {course.id === "az-500" && (
+                      <div className="flex items-center gap-2">
+                        <FaClock />
+                        <span>4 Days (Launching soon)</span>
+                      </div>
+                    )}
+                    {course.id === "cissp" && (
+                      <div className="flex items-center gap-2">
+                        <FaClock />
+                        <span>2 months (Sundays, 4pm–7pm)</span>
+                      </div>
+                    )}
+                    {/* Level */}
                     <div className="flex items-center gap-2">
                       <FaUsers />
                       <span>{course.level}</span>
                     </div>
+                    {/* Rating */}
                     <div className="flex items-center gap-2">
                       <FaStar className="text-yellow-500" />
                       <span>4.9/5</span>
                     </div>
                   </div>
-
                   {/* Price */}
-                  <div className="text-3xl font-bold text-[#29434e] mb-6">
+                  <div className="text-3xl font-bold text-[#ff8c2b] mb-2">
                     {course.price}
                   </div>
                 </div>
-
                 {/* Course Features */}
-                <div className="p-8">
-                  <h4 className="font-bold text-[#29434e] mb-4">
+                <div className="p-8 flex-1 flex flex-col">
+                  <h4 className="font-bold text-[#29434e] mb-4 text-base">
                     What You&apos;ll Learn:
                   </h4>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 mb-6">
                     {course.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
+                      <li key={index} className="flex items-start gap-2">
                         <FaCheck className="text-[#2bb3a2] mt-1 flex-shrink-0" />
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="text-[#29434e]/80 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
-
                   {/* Course Outline */}
-                  <div className="mb-8">
-                    <h4 className="font-bold text-[#29434e] mb-4">
+                  <div className="mb-6">
+                    <h4 className="font-bold text-[#29434e] mb-2 text-base">
                       Course Outline:
                     </h4>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       {course.outline.map((module, index) => (
                         <div
                           key={index}
-                          className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg"
+                          className="text-xs text-[#29434e]/70 bg-[#f8fafc] p-2 rounded"
                         >
                           {module}
                         </div>
                       ))}
                     </div>
                   </div>
-
                   {/* CTA Button */}
                   <Link
                     href={`/courses/${course.id}`}
-                    className=" w-full bg-[#2bb3a2] hover:bg-[#29434e] text-white font-bold py-4 px-6 rounded-xl text-center transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-[#2bb3a2] hover:bg-[#29434e] text-white font-bold py-3 px-5 rounded-xl text-center transition-all duration-300 flex items-center justify-center gap-2 shadow mt-auto"
                   >
                     View Course Details
                     <FaArrowRight />
@@ -206,23 +222,22 @@ const CoursesPage = () => {
       </section>
 
       {/* Enrollment CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#29434e] to-[#2bb3a2]">
+      <section className="py-16 border-t border-[#e0e7ef] bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[#29434e] mb-6">
               Ready to Start Your Cybersecurity Journey?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Join any course today and enjoy a 30% discount when you complete
-              payment at least 10 days before your start date.
+            <p className="text-xl text-[#29434e]/80 mb-8 font-light">
+              Join any course today and enjoy a <span className="font-bold text-[#ff8c2b]">30% discount</span> when you complete payment at least 10 days before your start date.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#ff8c2b] hover:bg-[#29434e] text-white font-bold py-4 px-8 rounded-xl transition-all">
-                Reserve Your Seat
-              </button>
-              <button className="bg-white/20 border border-white text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/30 transition-all">
+              <Link href="#courses" className="bg-[#ff8c2b] hover:bg-[#2bb3a2] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-lg border border-[#ff8c2b]">
+                Reserve Your Seat <FaArrowRight />
+              </Link>
+              <a href="mailto:hello@cypodadvisory.com" className="bg-white border border-[#2bb3a2] text-[#2bb3a2] font-semibold py-4 px-8 rounded-xl hover:bg-[#2bb3a2] hover:text-white transition-all flex items-center gap-2 text-lg">
                 Contact Us
-              </button>
+              </a>
             </div>
           </div>
         </div>

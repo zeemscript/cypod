@@ -25,7 +25,7 @@ const CISSPPage = () => {
               <FaCertificate className="text-white text-3xl" />
             </div>
             <h1 className="text-5xl font-bold text-white mb-6">
-              CISSP: Info Security Professional
+              CISSP: Certified Information Systems Security Professional
             </h1>
             <p className="text-xl text-white/90 mb-8">
               Build deep expertise in security architecture, governance, risk
@@ -34,7 +34,7 @@ const CISSPPage = () => {
             <div className="flex flex-wrap justify-center gap-6 text-white/90">
               <div className="flex items-center gap-2">
                 <FaClock />
-                <span>6 Days</span>
+                <span>2 months</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaUsers />
@@ -44,6 +44,11 @@ const CISSPPage = () => {
                 <FaStar />
                 <span>4.9/5 Rating</span>
               </div>
+            </div>
+            <div className="mt-8">
+              <p className="inline-flex items-center text-white text-truncate italic leading-tight">
+                Every Sundays 4pm to 7pm
+              </p>
             </div>
           </div>
         </div>
@@ -160,39 +165,44 @@ const CISSPPage = () => {
 
                   <div className="space-y-4 mb-8">
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold">6 Days</span>
+                      <span className="text-gray-700">Duration:</span>
+                      <span className="font-semibold">2 months</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Level:</span>
+                      <span className="text-gray-700">Starting date:</span>
+                      <span className="font-semibold">11th October </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-700">Level:</span>
                       <span className="font-semibold">Expert</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Format:</span>
-                      <span className="font-semibold">Live Online</span>
+                      <span className="text-gray-700">Format:</span>
+                      <span className="font-semibold">Online Instructor Led</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-600">Exam Prep:</span>
+                      <span className="text-gray-700">Exam Prep:</span>
                       <span className="font-semibold">Included</span>
                     </div>
                   </div>
 
                   <div className="text-center mb-8">
                     <div className="text-4xl font-bold text-[#29434e] mb-2">
-                      £3,200
+                      £800
                     </div>
                     <div className="text-sm text-gray-500">
                       30% discount available for early payment
+                    </div>
+                    <div className="mt-4">
+                      <p className="flex justify-center items-center text-gray-900 text-truncate italic leading-tight">
+                        Every Sundays 4pm to 7pm
+                      </p>
                     </div>
                   </div>
 
                   <button className="w-full bg-[#29434e] hover:bg-[#2bb3a2] text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 mb-4">
                     <FaEnvelope />
                     Enroll Now
-                  </button>
-
-                  <button className="w-full bg-white border-2 border-[#29434e] text-[#29434e] font-bold py-4 px-6 rounded-xl hover:bg-[#29434e] hover:text-white transition-all duration-300">
-                    Download Brochure
                   </button>
                 </div>
               </div>

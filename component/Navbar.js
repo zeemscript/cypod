@@ -14,11 +14,13 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-white/80 backdrop-blur-md border-b border-gray-200">
       {/* Logo */}
       <div className="flex items-center gap-2 sm:gap-3">
-        <img
-          src="/cypod_logo.png"
-          alt="CYPOD Logo"
-          className="h-8 w-auto sm:h-10"
-        />
+        <Link href="/">
+          <img
+            src="/cypod_logo.png"
+            alt="CYPOD Logo"
+            className="h-8 w-auto sm:h-10"
+          />
+        </Link>
    
       </div>
 

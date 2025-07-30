@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   FaMicrosoft,
   FaCloud,
@@ -15,7 +14,7 @@ const TrainingOptions = () => {
         <span className="text-2xl sm:text-5xl font-bold text-[#29434e] mb-4">
           Training Options
         </span>
-        <span className="text-3xl">
+        <span className="text-2xl sm:text-3xl font-light text-[#29434e]/70 max-w-3xl">
           Choose the path that’s right for you. Click any course to learn more:
         </span>
       </div>
@@ -23,10 +22,9 @@ const TrainingOptions = () => {
         {/* SC-200 Card */}
         <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
           <div className="relative h-56 w-full">
-            <Image
+            <img
               src="/sc-200.jpeg"
               alt="SC-200 Course"
-              fill
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
               priority
             />
@@ -57,7 +55,7 @@ const TrainingOptions = () => {
         {/* AZ-500 Card */}
         <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
           <div className="relative h-56 w-full">
-            <Image
+            <img
               src="/az-500.jpeg"
               alt="AZ-500 Course"
               fill
@@ -78,22 +76,21 @@ const TrainingOptions = () => {
               Azure workloads.
             </p>
             <div className="flex gap-4 flex-wrap mt-auto">
-              <Link
+              <p
                 href="/courses/az-500"
-                className="flex justify-center  items-center w-full text-white font-semibold bg-[#29434e] hover:bg-[#ff8c2b] px-6 py-2 rounded-full transition-colors text-lg"
+                className="flex justify-center  items-center w-full text-white font-bold bg-[#29434e]  px-6 py-2 rounded-full transition-colors text-lg"
               >
-                Details <FaArrowRight className="ml-2" />
-              </Link>
+               Coming Soon
+              </p>
             </div>
           </div>
         </div>
         {/* CISSP Card */}
         <div className="relative rounded-3xl shadow-xl overflow-hidden group bg-white flex flex-col h-full">
           <div className="relative h-56 w-full">
-            <Image
+            <img
               src="/cissp.jpeg"
               alt="CISSP Course"
-              fill
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
               priority={false}
             />
@@ -104,19 +101,19 @@ const TrainingOptions = () => {
           </div>
           <div className="flex-1 flex flex-col justify-between p-8">
             <h2 className="text-2xl font-extrabold text-[#29434e] mb-3 leading-tight">
-              CISSP: Info Security Professional
+              CISSP: Certified Information Systems Security Professional.
             </h2>
             <p className="text-lg text-[#29434e] mb-6 font-medium">
               Build deep expertise in security architecture, governance, risk
               and compliance.
             </p>
             <div className="flex gap-4 flex-wrap mt-auto">
-              <Link
+              <p
                 href="/"
-                className="flex justify-center w-full items-center text-white font-semibold bg-[#29434e] hover:bg-[#2bb3a2] px-6 py-2 rounded-full transition-colors text-lg"
+                className="flex justify-center w-full items-center text-white font-semibold bg-[#29434e]  px-6 py-2 rounded-full transition-colors text-lg"
               >
-                Details <FaArrowRight className="ml-2" />
-              </Link>
+            Coming Soon
+              </p>
             </div>
           </div>
         </div>

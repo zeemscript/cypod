@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { FaEnvelope, FaGlobe } from "react-icons/fa6";
 
 const Footer = () => {
@@ -11,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-4">
-              <Image
+              <img
                 src="/cypod_logo.png"
                 height={40}
                 width={190}

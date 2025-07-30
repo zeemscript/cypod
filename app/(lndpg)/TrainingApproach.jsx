@@ -9,9 +9,8 @@ const TrainingApproach = () => {
         style={{ filter: "blur(2px)", opacity: 0.7 }}
       />
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-5xl font-extrabold text-center text-[#29434e] mb-4 tracking-tight relative inline-block">
+        <h2 className="text-5xl flex items-center justify-center  text-center font-extrabold text-[#29434e] mb-4 tracking-tight relative">
           Our Training Approach
-          <span className="block h-1 w-24 bg-gradient-to-r from-[#2bb3a2] to-[#ff8c2b] rounded-full mx-auto mt-4" />
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto mt-12">
           {/* Card 1 */}

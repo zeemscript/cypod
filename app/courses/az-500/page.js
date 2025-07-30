@@ -1,22 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import {
-  FaCloud,
-  FaArrowRight,
-  FaClock,
-  FaUsers,
-  FaStar,
-  FaCheck,
   FaShield,
-  FaLaptop,
   FaCertificate,
-  FaEnvelope,
   FaRocket,
-  FaBell,
   FaMicrosoft,
-  FaGift,
-  FaPlay,
-  FaGraduationCap,
   FaLock,
   FaGlobe
 } from "react-icons/fa6";
@@ -189,107 +177,6 @@ const AZ500ComingSoon = () => {
                   <p className="text-[#29434e]/70 text-sm">{feature.desc}</p>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Email signup */}
-          <div className="mb-12">
-            <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-[#2bb3a2]/20 shadow-2xl max-w-2xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#29434e] mb-4">
-                Get Early Access & Special Pricing
-              </h2>
-              <p className="text-[#29434e]/70 mb-8">
-                Be the first to know when we launch. Sign up for early bird
-                pricing and exclusive updates.
-              </p>
-
-              {!isSubmitted ? (
-                <form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col sm:flex-row gap-4"
-                >
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="flex-1 px-6 py-4 bg-white/80 backdrop-blur-sm border border-[#29434e]/20 rounded-xl text-[#29434e] placeholder-[#29434e]/60 focus:outline-none focus:ring-2 focus:ring-[#2bb3a2] focus:border-transparent"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-[#2bb3a2] to-[#2bb3a2]/90 hover:from-[#ff8c2b] hover:to-[#ff8c2b]/90 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3"
-                  >
-                    <FaBell className="w-4 h-4" />
-                    Notify Me
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FaCheck className="text-white text-2xl" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#29434e] mb-2">
-                    You&apos;re on the list!
-                  </h3>
-                  <p className="text-[#29434e]/70">
-                    We&apos;ll notify you as soon as the course launches.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Early bird benefits */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-[#29434e] mb-8">
-              Early Bird Benefits
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                {
-                  icon: FaGift,
-                  title: "50% Off Launch Price",
-                  desc: "Exclusive early bird discount",
-                },
-                {
-                  icon: FaPlay,
-                  title: "Bonus Content",
-                  desc: "Extra modules & resources",
-                },
-                {
-                  icon: FaGraduationCap,
-                  title: "Priority Support",
-                  desc: "Direct access to instructors",
-                },
-              ].map((benefit, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-[#2bb3a2]/10 to-[#ff8c2b]/10 backdrop-blur-sm rounded-xl p-6 border border-[#2bb3a2]/30 shadow-lg"
-                >
-                  <div className="w-12 h-12 bg-[#ff8c2b] rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="text-white text-xl" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#29434e] mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-[#29434e]/70 text-sm">{benefit.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Social proof */}
-          <div className="text-center">
-            <p className="text-[#29434e]/60 text-sm mb-4">
-              Trusted by security professionals worldwide
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-6 text-[#29434e]/40">
-              <span className="text-sm">Microsoft Partner</span>
-              <span className="text-sm">•</span>
-              <span className="text-sm">Certified Instructors</span>
-              <span className="text-sm">•</span>
-              <span className="text-sm">Industry Recognized</span>
             </div>
           </div>
         </div>

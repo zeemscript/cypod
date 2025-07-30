@@ -37,11 +37,13 @@ const SC200EnrollmentPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form Data:", formData);
     setLoading(true);
     setSuccess(null);
     setError(null);
     try {
       await sendMail(formData);
+      console.log("Email sent successfully");
       setSuccess("Enrollment submitted successfully! We will get back to you soon.");
       setFormData({ fullName: "", phone: "", whatsapp: "", email: "", country: "", course: "SC-200: Security Operations Analyst" });
     } catch (err) {
